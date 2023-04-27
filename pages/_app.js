@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-
+import AuthContextProvider from "../contexts/AuthContext";
 import "../styles/globals.scss";
 import { Layout } from "../components";
 
@@ -24,9 +24,11 @@ function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <AuthContextProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </AuthContextProvider>
     </>
   );
 }
